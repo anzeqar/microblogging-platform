@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node server",
-    "test": "cross-env NODE_ENV=development nodemon server"
+    "start": "node server",
+    "test": " nodemon server"
   },
   "author": "",
   "license": "ISC",
