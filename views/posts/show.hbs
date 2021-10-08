@@ -1,0 +1,22 @@
+<div class="card rounded">
+  <div class="d-flex p-3 pb-1 flex-row align-items-center">
+    <img
+      src="{{post.user.image}}"
+      class="rounded-circle"
+      style="width:5%"
+      alt="..."
+    /><a
+      href="/posts/user/{{post.user._id}}"
+      class="ms-2 h3 text-decoration-none text-primary"
+    >{{post.user.displayName}}</a>
+    {{{editIcon post.user user post._id}}}
+  </div>
+
+  <div class="card-body">
+    <h4 class="card-title">{{post.title}}</h4>
+    <h6>Date: {{formatDate post.createdAt "DD-MM-YYYY hh:mm:ss A"}}</h6>
+    <hr />
+    <p class="card-text">{{{post.body}}}
+    </p>
+  </div>
+</div>

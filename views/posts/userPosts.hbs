@@ -1,0 +1,31 @@
+<h1 class="mb-4">Viewing Posts from this User</h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {{#each posts}}
+    <div class="col">
+      <div class="card h-100 rounded">
+        <div class="d-flex p-3 pb-1 flex-row align-items-center">
+          <img
+            src="{{user.image}}"
+            class="rounded-circle"
+            style="width:17%"
+            alt="..."
+          /><a
+            href="/posts/user/{{user._id}}"
+            class="ms-2 h3 text-decoration-none text-primary"
+          >{{user.displayName}}</a>
+          {{{editIcon user ../user _id}}}
+        </div>
+
+        <div class="card-body">
+          <h4 class="card-title">{{title}}</h4>
+          <p class="card-text">{{trimText (removeTags body) 150}}
+            <a href="/posts/{{_id}}">Read More</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  {{else}}
+    <p>No posts so far....</p>
+  {{/each}}
+</div>

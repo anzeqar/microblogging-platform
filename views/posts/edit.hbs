@@ -1,0 +1,34 @@
+<h2 class="mb-4">Add a Post</h2>
+
+<form action="/posts/{{post._id}}" method="POST">
+  <input type="hidden" name="_method" value="PUT" />
+  <div class="form-group mb-3">
+    <input
+      type="title"
+      class="form-control"
+      id="title"
+      name="title"
+      placeholder="Title"
+      value="{{post.title}}"
+    />
+  </div>
+  <select class="form-select mb-3" name="status" id="status">
+    {{#select post.status}}
+      <option value="publish">Public</option>
+      <option value="draft">Draft</option>
+    {{/select}}
+  </select>
+  <textarea
+    class="form-control mb-3"
+    id="body"
+    name="body"
+  >{{post.body}}</textarea>
+  <br />
+  <button type="submit" class="btn btn-success">Save</button>
+  <a href="/dashboard" class="btn btn-danger">Cancel</a>
+</form>
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
+<script>
+  CKEDITOR.replace('body');
+</script>

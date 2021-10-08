@@ -1,0 +1,27 @@
+<h2 class="mb-4">Add a Post</h2>
+
+<form action="/posts" method="POST">
+  <div class="form-group mb-3">
+    <input
+      type="title"
+      class="form-control"
+      id="title"
+      name="title"
+      placeholder="Title"
+    />
+  </div>
+  <select class="form-select mb-3" name="status" id="status">
+    <option value="publish">Public</option>
+    <option value="draft">Draft</option>
+  </select>
+  <textarea class="form-control mb-3" id="body" name="body"></textarea>
+  <br />
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <a href="/dashboard" class="btn btn-danger">Cancel</a>
+</form>
+
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
+<script>
+  CKEDITOR.replace('body');
+</script>

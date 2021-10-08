@@ -1,0 +1,33 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">MicroBlogging Platform</a>
+
+    <div class="" id="navbarSupportedContent">
+
+      <div class="d-flex flex-row justify-content-center align-items-center">
+        <a href="/posts/">
+          <button class="btn btn-primary p-2 me-1">All Posts</button>
+        </a>
+        <a href="/posts/add">
+          <button class="btn btn-primary p-2 me-1">Add Post</button>
+        </a>
+        <a href="/auth/logout"><button
+            class="btn btn-primary m-0 rounded p-auto"
+            type="submit"
+          >
+
+            <img
+              src="{{req.user.image}}"
+              srcset="{{profileImg}}"
+              class="pe-1 img-fluid rounded-circle"
+              style="width: 2rem;"
+            />
+
+            Logout</button></a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container mt-4">
+  <div class="container p-4"></div>
+</div>
