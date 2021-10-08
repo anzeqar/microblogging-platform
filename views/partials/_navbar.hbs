@@ -1,36 +1,49 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">MicroBlogging Platform</a>
-
-    <div class="" id="navbarSupportedContent">
-
-      <div class="d-flex flex-row justify-content-center align-items-center">
-        <a href="/">
-          <button class="btn btn-primary p-2 me-1">Dashboard</button>
-        </a>
-        <a href="/posts/">
-          <button class="btn btn-primary p-2 me-1">All Posts</button>
-        </a>
-        <a href="/posts/add">
-          <button class="btn btn-primary p-2 me-1">Add Post</button>
-        </a>
-        <a href="/auth/logout"><button
-            class="btn btn-primary m-0 rounded p-auto"
-            type="submit"
-          >
-
-            <img
-              src="{{req.user.image}}"
-              srcset="{{profileImg}}"
-              class="pe-1 img-fluid rounded-circle"
-              style="width: 2rem;"
-            />
-
-            Logout</button></a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand ps-4 col-6" href="#"><span class="ps-4">MicroBlogging Platform</span></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 ps-4 mb-lg-0 ms-auto">
+            
+            <li class="nav-item p-1 ps-4">
+              <a href="/" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                <button class="btn btn-primary p-2 me-1">Dashboard</button>
+              </a>
+              </li>
+              <li class="nav-item p-1 ps-4"> 
+                <a href="/posts/" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                <button class="btn btn-primary p-2 me-1">All Posts</button>
+              </a></li>
+             <li class="nav-item p-1 ps-4">
+              <a href="/posts/add" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">
+                <button class="btn btn-primary p-2 me-1">Add Post</button>
+              </a>
+             </li>
+              <li class="nav-item p-1 ps-4">
+                <a href="/auth/logout" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"><button class="btn btn-primary m-0 rounded p-auto" type="submit">
+                  <img
+                    src="{{req.user.image}}"
+                    srcset="{{profileImg}}"
+                    class="pe-1 img-fluid rounded-circle"
+                    style="width: 2rem"
+                  />
+  
+                  Logout
+                </button></a
+              >
+              </li>
+            </li>
+        </div>
       </div>
-    </div>
-  </div>
 </nav>
-<div class="container mt-4">
-  <div class="container p-4"></div>
-</div>
+    
