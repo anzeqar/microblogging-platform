@@ -8,8 +8,26 @@
     no-repeat right 0.75rem center/8px 10px !important;
 }
 
-html {
-  cursor: text;
-  background: #212529;
-  color: white;
+.navbar-toggler {
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: none;
+}
+
+.navbar-toggler {
+  padding: 1px;
+  font-size: 1rem;
+  line-height: 1;
+  background-color: transparent;
+  border-radius: 0.25rem;
+  transition: box-shadow 0.15s ease-in-out;
 }
