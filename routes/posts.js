@@ -17,8 +17,7 @@ router.get("/", ensureAuth, async (req, res) => {
       .lean();
     res.render("posts/index", { posts, profileImg: req.user.image });
   } catch (err) {
-    console.error(err);
-    res.redirect("error/500");
+    res.render("error/500", { profileImg: req.user.image });
   }
 });
 
@@ -28,12 +27,11 @@ router.get("/:id", ensureAuth, async (req, res) => {
       .populate("user")
       .lean();
     if (!post) {
-      return res.render("error/404");
+      return res.render("error/404", { profileImg: req.user.image });
     }
     res.render("posts/show", { post, profileImg: req.user.image });
   } catch (err) {
-    console.error(err);
-    res.redirect("error/500");
+    res.render("error/500", { profileImg: req.user.image });
   }
 });
 
@@ -43,12 +41,11 @@ router.get("/user/:id", ensureAuth, async (req, res) => {
       .populate("user")
       .lean();
     if (!posts) {
-      return res.render("error/404");
+      return res.render("error/404", { profileImg: req.user.image });
     }
     res.render("posts/userPosts", { posts, profileImg: req.user.image });
   } catch (err) {
-    console.error(err);
-    res.render("error/500");
+    res.render("error/500", { profileImg: req.user.image });
   }
 });
 
@@ -56,7 +53,7 @@ router.get("/edit/:id", ensureAuth, async (req, res) => {
   try {
     const post = await Post.findOne({ _id: req.params.id }).lean();
     if (!post) {
-      return res.redirect("error/404");
+      return res.render("error/404", { profileImg: req.user.image });
     }
     if (post.user != req.user.id) {
       res.redirect("/posts");
@@ -64,8 +61,7 @@ router.get("/edit/:id", ensureAuth, async (req, res) => {
       res.render("posts/edit", { post, profileImg: req.user.image });
     }
   } catch (err) {
-    console.error(err);
-    res.render("error/500");
+    res.render("error/500", { profileImg: req.user.image });
   }
 });
 
@@ -75,8 +71,7 @@ router.post("/", ensureAuth, async (req, res) => {
     await Post.create(req.body);
     res.redirect("/dashboard");
   } catch (err) {
-    console.error(err);
-    res.redirect("error/500");
+    res.render("error/500", { profileImg: req.user.image });
   }
 });
 
@@ -84,7 +79,7 @@ router.put("/:id", ensureAuth, async (req, res) => {
   try {
     let post = await Post.findById(req.params.id).lean();
     if (!post) {
-      return res.redirect("error/404");
+      return res.render("error/404", { profileImg: req.user.image });
     }
     if (post.user != req.user.id) {
       res.redirect("/posts");
@@ -96,8 +91,7 @@ router.put("/:id", ensureAuth, async (req, res) => {
       res.redirect("/dashboard");
     }
   } catch (err) {
-    console.error(err);
-    res.redirect("error/500");
+    res.render("error/500", { profileImg: req.user.image });
   }
 });
 
@@ -106,8 +100,7 @@ router.delete("/:id", ensureAuth, async (req, res) => {
     await Post.deleteOne({ _id: req.params.id });
     res.redirect("/dashboard");
   } catch (err) {
-    console.error(err);
-    return res.redirect("error/500");
+    return res.render("error/500", { profileImg: req.user.image });
   }
 });
 

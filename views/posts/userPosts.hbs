@@ -1,9 +1,9 @@
-<h1 class="mb-4 mt-2 text-center">Viewing Posts from this User</h1>
+<h1 class="mb-4 mt-4 text-center">Viewing Posts from this User</h1>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
   {{#each posts}}
     <div class="col">
-      <div class="card h-100 rounded">
+      <div class="card h-100 rounded bg-dark border border-info">
         <div class="d-flex p-3 pb-1 flex-row align-items-center">
           <img
             src="{{user.image}}"
@@ -12,7 +12,7 @@
             alt="..."
           /><a
             href="/posts/user/{{user._id}}"
-            class="ms-2 h3 text-decoration-none text-primary"
+            class="ms-2 h3 text-decoration-none text-warning"
           >{{user.displayName}}</a>
           {{{editIcon user ../user _id}}}
         </div>

@@ -1,7 +1,6 @@
 const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv");
-const morgan = require("morgan");
 const exphbs = require("express-handlebars");
 const passport = require("passport");
 const session = require("express-session");
@@ -59,19 +58,16 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use((req, res, next) => {
   res.locals.user = req.user || null;
   next();
 });
-
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
 app.use("/posts", require("./routes/posts"));
-
-if (process.env.NODE_ENV === "development") {
-  app.use(morgan("tiny"));
-}
+app.use(function (req, res, next) {
+  res.render("error/404", { profileImg: req.user.image });
+});
 
 const PORT = process.env.PORT || 5000;
 

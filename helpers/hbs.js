@@ -2,7 +2,7 @@ const moment = require("moment");
 
 module.exports = {
   formatDate: (date, format) => {
-    return moment(date).format(format);
+    return moment(date).utcOffset(330).format(format);
   },
   trimText: (str, len) => {
     if (str.length > len && str.length > 0) {
@@ -18,7 +18,7 @@ module.exports = {
   },
   editIcon: (postUser, loggedUser, postId) => {
     if (postUser._id.toString() == loggedUser._id.toString()) {
-      return `<a href="/posts/edit/${postId}" class='ms-auto'><button class="ms-auto btn btn-success">Edit</button></a>`;
+      return `<a href="/posts/edit/${postId}" class='ms-auto'><button class="ms-auto btn p-3 btn-success rounded-circle"><i class="fas fa-pen"></i></button></a>`;
     } else {
       return "";
     }
@@ -33,6 +33,11 @@ module.exports = {
       );
   },
   upperCase: (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
+    if (str == "publish") {
+      return str.charAt(0).toUpperCase() + str.slice(1) + "ed";
+    }
+    if (str == "draft") {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
   },
 };

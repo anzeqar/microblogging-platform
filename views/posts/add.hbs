@@ -1,22 +1,32 @@
-<h2 class="mb-4 mt-2 text-center">Add a Post</h2>
+<h2 class="mb-4 mt-4 text-center">Add a Post</h2>
 
 <form action="/posts" method="POST">
   <div class="form-group mb-3">
     <input
       type="title"
-      class="form-control"
+      class="form-control bg-dark text-light border-info border-0 border-bottom rounded-0"
       id="title"
       name="title"
+      required="true"
       placeholder="Title"
     />
   </div>
-  <select class="form-select mb-3" name="status" id="status">
+  <select
+    class="form-select mb-3 bg-dark text-light border-info border-0 border-bottom rounded-0 shadow-none custom-select"
+    name="status"
+    id="status"
+  >
     <option value="publish">Public</option>
     <option value="draft">Draft</option>
   </select>
-  <textarea class="form-control mb-3" id="body" name="body"></textarea>
+  <textarea
+    class="form-control mb-3 bg-dark text-light border-info"
+    id="body"
+    name="body"
+    required="true"
+  ></textarea>
   <br />
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-success me-2">Submit</button>
   <a href="/dashboard" class="btn btn-danger">Cancel</a>
 </form>
 

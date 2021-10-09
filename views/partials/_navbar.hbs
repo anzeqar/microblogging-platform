@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-info border-bottom">
       <div class="container-fluid">
-        <a class="navbar-brand ps-4 col-6" href="#"><span class="ps-4">MicroBlogging Platform</span></a>
+        <a class="navbar-brand" href="/"><span class="">MicroBlogging Platform</span></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -13,36 +13,36 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 ps-4 mb-lg-0 ms-auto">
+          <ul class="navbar-nav ms-auto d-flex flex-row align-items-center justify-content-between ">
             
-            <li class="nav-item p-1 ps-4">
-              <a href="/">
-                <button class="btn btn-primary p-2 me-1">Dashboard</button>
-              </a>
+            <li class="nav-item  pe-1">
+              <a href="/" class="text-light text-decoration-none" style="font-size: 0.9rem;">
+                Dashboard
               </li>
-              <li class="nav-item p-1 ps-4"> 
-                <a href="/posts/">
-                <button class="btn btn-primary p-2 me-1">All Posts</button>
+              <li class="nav-item ps-1 pe-1"> 
+                <a href="/posts/" class="text-light text-decoration-none" style="font-size: 0.9rem;">
+                All Posts
               </a></li>
-             <li class="nav-item p-1 ps-4">
-              <a href="/posts/add" >
-                <button class="btn btn-primary p-2 me-1">Add Post</button>
+             <li class="nav-item ps-1 pe-1">
+              <a href="/posts/add" class="text-light text-decoration-none" style="font-size: 0.9rem;">
+                Add Post
               </a>
              </li>
-              <li class="nav-item p-1 ps-4">
-                <a href="/auth/logout"><button class="btn btn-primary m-0 rounded p-auto" type="submit">
+              <li class="nav-item ps-1 ">
+                <a href="/auth/logout" style="font-size: 0.9rem;"><button class="btn btn-danger rounded" style="font-size: 0.9rem;    padding: 3px;
+    background-color: rgb(165, 0, 0);
+    border-color: rgb(165, 0, 0);" type="submit">
                   <img
                     src="{{req.user.image}}"
                     srcset="{{profileImg}}"
                     class="pe-1 img-fluid rounded-circle"
-                    style="width: 2rem"
+                    style="width: 1.7rem"
                   />
   
                   Logout
                 </button></a
               >
-              </li>
-            </li>
+      </li>
         </div>
       </div>
 </nav>

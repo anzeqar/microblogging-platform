@@ -1,18 +1,23 @@
-<h2 class="mb-4 mt-2 text-center">Add a Post</h2>
+<h2 class="mb-4 mt-4 text-center">Edit Post</h2>
 
-<form action="/posts/{{post._id}}" method="POST">
+<form action="/posts/{{post._id}}" class="bg-dark text-light" method="POST">
   <input type="hidden" name="_method" value="PUT" />
   <div class="form-group mb-3">
     <input
       type="title"
-      class="form-control"
+      class="form-control bg-dark text-light border-info border-0 border-bottom rounded-0"
       id="title"
       name="title"
       placeholder="Title"
       value="{{post.title}}"
+      class="bg-dark text-light"
     />
   </div>
-  <select class="form-select mb-3" name="status" id="status">
+  <select
+    class="form-select mb-3 bg-dark text-light border-info border-0 border-bottom rounded-0 custom-select"
+    name="status"
+    id="status"
+  >
     {{#select post.status}}
       <option value="publish">Public</option>
       <option value="draft">Draft</option>
@@ -24,7 +29,7 @@
     name="body"
   >{{post.body}}</textarea>
   <br />
-  <button type="submit" class="btn btn-success">Save</button>
+  <button type="submit" class="btn btn-success me-2">Save</button>
   <a href="/dashboard" class="btn btn-danger">Cancel</a>
 </form>
 <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
